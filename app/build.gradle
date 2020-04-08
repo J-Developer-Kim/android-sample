@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.example.androiddev"
+        minSdkVersion 26
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+        ndk {
+
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+
+    // 미러링
+    implementation 'androidx.mediarouter:mediarouter:1.0.0'
+
+    // RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+    implementation 'io.github.luizgrp.sectionedrecyclerviewadapter:sectionedrecyclerviewadapter:1.2.0'
+
+    // Socket
+    implementation 'com.github.nkzawa:socket.io-client:0.6.0'
+
+    // XML bind 버터나이프
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+
+    // lombok
+    compileOnly 'org.projectlombok:lombok:1.16.18'
+    compileOnly 'javax.annotation:javax.annotation-api:1.3.1'
+    annotationProcessor 'org.projectlombok:lombok:1.16.18'
+
+    // 이미지 피커
+    implementation files('libs/esafirmImagePicker.aar')
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.5.0'
+    implementation 'jp.wasabeef:glide-transformations:3.1.1'
+
+    // 권한설정
+    implementation 'gun0912.ted:tedpermission:2.2.2'
+
+    // gson
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    implementation 'com.google.android.material:material:1.1.0-alpha09'
+
+    // PickerView (휠뷰)
+    implementation 'com.github.zyyoona7:pickerview:1.0.5'
+
+    // 구글맵
+    implementation 'com.google.android.gms:play-services-maps:15.0.0'
+    implementation 'com.google.android.gms:play-services-location:15.0.0'
+    implementation 'com.google.android.gms:play-services-places:15.0.0'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+}

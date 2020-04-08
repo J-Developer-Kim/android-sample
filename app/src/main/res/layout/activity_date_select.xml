@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DateSelectActivity"
+    android:background="@color/color_transparent10"
+    android:id="@+id/cl_backGround">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_empty"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_transparent"
+        app:layout_constraintBottom_toTopOf="@+id/gl_backGround"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_backGround"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.23" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gl_backGround">
+
+        <!-- 상단 헤더 설정 시작 -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_headerDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.16" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_calendarHeader"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/gl_headerDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/cl_headerLeft"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.75"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:id="@+id/ll_start"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.5"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_startYmd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="2020.01.10 금요일"
+                            android:textColor="@color/black"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tv_startTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="10:00 AM"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_line_gray" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_end"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.5"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_endYmd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="2020.01.10 금요일"
+                            android:textColor="@color/black"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tv_endTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="10:00 AM"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_line_gray" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/tv_lunar"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:text="음력"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:id="@+id/view_lunarAlldayCenter"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/color_line_gray" />
+
+                    <TextView
+                        android:id="@+id/tv_allDay"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:text="종일"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- 상단 헤더 설정 종료 -->
+
+        <View
+            android:id="@+id/view_lineBottom"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/color_line_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/gl_headerDate" />
+
+        <!-- 년,월,오늘 시작 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_lineBottom">
+
+            <Button
+                android:id="@+id/btn_yyyy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/color_white"
+                android:stateListAnimator="@null"
+                android:text="1929년"
+                android:textColor="@color/color_black"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_month"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_month" />
+
+            <Button
+                android:id="@+id/btn_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:background="@color/color_white"
+                android:stateListAnimator="@null"
+                android:text="1월"
+                android:textColor="@color/color_black"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_today"
+                app:layout_constraintStart_toEndOf="@+id/btn_yyyy"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/color_white"
+                android:stateListAnimator="@null"
+                android:text="오늘"
+                android:textColor="@color/color_text_sub"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_month"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_month" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- 년,월,오늘 종료 -->
+
+        <!-- 캘린더 시작 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_calendar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/color_line_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/ll_include"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/color_white">
+
+                <include
+                    android:id="@+id/include"
+                    layout="@layout/calendar_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vp_calendar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/gl_calendarFooter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_include" />
+
+            <!-- 캘린더 Bottom 휠뷰 시작 -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_calendarFooter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.68" />
+
+            <LinearLayout
+                android:id="@+id/ll_calendarBottomWheelView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/color_line_gray"
+                android:orientation="vertical"
+                android:weightSum="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/gl_calendarFooter"
+                android:layout_marginTop="4dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="32dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_bottomWheelView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="0.9"
+                    android:visibility="visible">
+
+                    <com.zyyoona7.wheel.WheelView
+                        android:id="@+id/wheel_ampm"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
+                        app:wv_textSize="16sp"
+                        app:wv_selectedItemTextColor="@color/black"
+                        app:wv_normalItemTextColor="@color/color_text_sub"
+                        app:wv_lineSpacing="6dp"/>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"/>
+
+                    <com.zyyoona7.wheel.WheelView
+                        android:id="@+id/wheel_hour"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
+                        app:wv_textSize="16sp"
+                        app:wv_selectedItemTextColor="@color/black"
+                        app:wv_normalItemTextColor="@color/color_text_sub"
+                        app:wv_lineSpacing="6dp"/>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white" />
+
+                    <com.zyyoona7.wheel.WheelView
+                        android:id="@+id/wheel_minute"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
+                        app:wv_textSize="16sp"
+                        app:wv_selectedItemTextColor="@color/black"
+                        app:wv_normalItemTextColor="@color/color_text_sub"
+                        app:wv_lineSpacing="6dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <!-- 캘린더 Bottom 휠뷰 종료 -->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- 캘린더 종료 -->
+
+        <!-- 년월 선택하는 휠뷰 시작 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_yearMonthWheelView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            android:visibility="gone">
+
+            <!-- 년월 선택하는 휠뷰 시작 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_yearMonthWheelViewTop"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/gl_yearMonthWheelViewBottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_yearMonthWheelViewTop1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.12" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_yearMonthWheelViewTop2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.7" />
+
+                <LinearLayout
+                    android:id="@+id/ll_yearMonthWheelView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    app:layout_constraintBottom_toTopOf="@+id/gl_yearMonthWheelViewTop2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/gl_yearMonthWheelViewTop1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="년"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_line_gray"
+                        android:layout_marginLeft="20dp"/>
+
+                    <com.zyyoona7.wheel.WheelView
+                        android:id="@+id/wheel_yyyy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:wv_lineSpacing="6dp"
+                        app:wv_normalItemTextColor="@color/color_text_sub"
+                        app:wv_selectedItemTextColor="@color/black"
+                        app:wv_textSize="17sp"
+                        android:layout_marginLeft="20dp" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_line_gray"
+                        android:layout_marginLeft="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="월"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="60dp" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_line_gray"
+                        android:layout_marginLeft="20dp" />
+
+                    <com.zyyoona7.wheel.WheelView
+                        android:id="@+id/wheel_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:wv_lineSpacing="6dp"
+                        app:wv_normalItemTextColor="@color/color_text_sub"
+                        app:wv_selectedItemTextColor="@color/black"
+                        app:wv_textSize="17sp"
+                        android:layout_marginLeft="20dp" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_line_gray"
+                        android:layout_marginLeft="20dp" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- 년월 선택하는 휠뷰 종료 -->
+
+            <!-- 년월 선택하는 하단 시작 -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_yearMonthWheelViewBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.7" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_yearMonthWheelViewBottom"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="60dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/gl_yearMonthWheelViewBottom">
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/color_line_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_bottomClose"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="취소"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/gl_yearMonthWheelViewBottomWidth"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_yearMonthWheelViewBottomWidth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <TextView
+                    android:id="@+id/tv_bottomSucc"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="저장"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_bottomClose"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_bottomClose"
+                    app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- 년월 선택하는 하단 종료 -->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- 년월 선택하는 휠뷰 종료 -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

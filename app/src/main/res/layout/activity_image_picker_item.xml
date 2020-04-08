@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_representationImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_default_user"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_albumSubject"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="2dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="모든 이미지"
+        android:textColor="@color/color_text_default"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_albumImageCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_representationImage"
+        app:layout_constraintTop_toTopOf="@+id/iv_representationImage" />
+
+    <TextView
+        android:id="@+id/tv_albumImageCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="100"
+        android:textColor="@color/color_text_sub"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_representationImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_representationImage"
+        app:layout_constraintTop_toBottomOf="@id/tv_albumSubject" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
